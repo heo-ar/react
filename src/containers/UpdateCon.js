@@ -25,7 +25,7 @@ function UpdateCon() {
     dispatch({ type: "FINISHED" });
   }, [id, navigate]);
   console.log("state.detail", state.detail);
-  
+
   const onChange = (e) => {
     const { name, value } = e.target;
     dispatch({ type: "CHANGE_INPUT", name, value, form: "detail" });
@@ -43,7 +43,7 @@ function UpdateCon() {
     sessionStorage.setItem("members", JSON.stringify(updatedList));
     dispatch({ type: "FINISHED" });
     alert("수정 완료!");
-    navigate(`/detail/${id}`);
+    navigate(`/detail/${id}`, { state: updatedUser });
   };
 
   if (state.loading || !state.detail) return <p>로딩 중...</p>;
