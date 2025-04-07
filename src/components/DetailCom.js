@@ -31,8 +31,8 @@ function DetailCom({ data, currentUser, onPermissionCheck }) {
             dispatch({ type: "FINISHED" }); // 로딩 종료
           }
         }
-      } else if (action === 'edit') {
-        navigate(`/edit/${dataId}`);
+      } else if (action === 'update') {
+        navigate(`/update/${dataId}`);
       }
     } else {
       onPermissionCheck(); // 권한 없을 때
@@ -57,7 +57,9 @@ function DetailCom({ data, currentUser, onPermissionCheck }) {
         {currentUser?.id?.toString().trim() === data?.id?.toString().trim() && (
           <>
             <button className="btn-delete" onClick={() => handleAction('delete')} disabled={state.loading}>삭제</button>
-            <button className="btn-edit" onClick={() => handleAction('edit')} disabled={state.loading}>수정</button>
+            <button className="btn-edit" onClick={() => handleAction('update')} disabled={state.loading}>
+              {state.loading ? "로딩 중..." : "수정"}
+            </button>
           </>
         )}
       </div>

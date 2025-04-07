@@ -35,6 +35,16 @@ const saveData = () => {
       return -1;
     }
   };
+
+const updateMember = (updatedUser) => {
+  const idx = data_set.findIndex(user => user.id === updatedUser.id);
+  if (idx !== -1) {
+    data_set[idx] = updatedUser;
+    saveData(); // 세션 스토리지 업데이트
+    return 1;   // 성공
+  }
+  return 0; // 실패
+};
   
-  export { getList, loginCheck, deleteMember };
+  export { getList, loginCheck, deleteMember, updateMember };
   

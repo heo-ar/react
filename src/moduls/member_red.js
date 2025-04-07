@@ -5,6 +5,7 @@ const initialState = {
     login: { id: "", pwd: "" }, // 로그인 입력 상태
     register: { id: "", pwd: "", name: "", addr: "" }, // 회원가입 입력 상태
     data: null,      // 서버에서 가져온 데이터 (회원 목록 등)
+    detail: null,    // 회원 상세 정보 상태 (수정용)
     loading: false,  // 데이터 로딩 여부
     error: null      // 오류 발생 시 저장될 에러 메시지
 };
@@ -15,11 +16,23 @@ const reducer = (state, action) => {
     switch (action.type) {
         // 입력값 변경 (로그인/회원가입 입력값 업데이트)
         case "CHANGE_INPUT":
+            // 수정폼(detail)인 경우
+            if (action.form === "detail") {
+                return {
+                    ...state,
+                    detail: {
+                        ...state.detail,
+                        [action.name]: action.value
+                    }
+                };
+            }
+
+            // 로그인 또는 회원가입 폼인 경우
             return {
                 ...state,
-                [action.form]: {   // login 또는 register를 변경
-                    ...state[action.form],  // 기존 데이터 유지
-                    [action.name]: action.value  // 입력값 업데이트
+                [action.form]: {
+                    ...state[action.form],
+                    [action.name]: action.value
                 }
             };
 
@@ -28,6 +41,13 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 data: action.data // 서버에서 가져온 회원 목록을 저장
+            };
+
+        // 상세 정보 저장 (수정 페이지용)
+        case "DETAIL":
+            return {
+                ...state,
+                detail: action.data // 선택한 회원의 정보를 저장
             };
 
         // 로딩 시작 (데이터 요청 시작할 때)
