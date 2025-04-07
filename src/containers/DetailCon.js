@@ -11,14 +11,15 @@ const [currentUser, setCurrentUser] = useState(null);
 
   // 로그인한 사용자 정보 로드
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("currentUser"));
+    const storedUser = localStorage.getItem("currentUser");
+    const user = storedUser ? JSON.parse(storedUser) : null;
     console.log("현재 로그인한 사용자:", user); // 확인용
     setCurrentUser(user);
-
-    // id에 맞는 member 찾기
-    const foundMember = getList().find((user) => user.id === id);
+  
+    const foundMember = getList().find((user) => user.id.toString() === id.toString());
     setMember(foundMember);
   }, [id]);
+  
 
   // 권한 확인 및 alert 띄우기
   const handlePermissionCheck = () => {

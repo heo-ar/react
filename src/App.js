@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
  import IndexPage from './pages/IndexPage';
  import ListPage from './pages/ListPage';
  import LoginPage from './pages/LoginPage';
- import DetailPage from './pages/DetailPage'; 
+ import DetailPage from './pages/DetailPage';
 
  
  function App() {
