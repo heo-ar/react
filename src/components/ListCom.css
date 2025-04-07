@@ -1,0 +1,62 @@
+/* 전체 컨테이너 스타일 */
+.list-container {
+  width: 80%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+/* 테이블 기본 스타일 */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* 테이블 헤더 스타일 */
+.custom-table thead {
+  background-color: #333;
+  color: white;
+}
+
+/* 테이블 셀 스타일 */
+.custom-table th, .custom-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+/* 홀수 행 배경색 변경 */
+.custom-table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* 짝수 행 배경색 변경 */
+.custom-table tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/* 마우스 호버 효과 */
+.custom-table tbody tr:hover {
+  background-color: #ddd;
+}
+
+/* 로딩 & 에러 메시지 스타일 */
+.loading {
+  color: blue;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+/* ListCom.css */
+.name-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.name-link:hover {
+  text-decoration: underline;
+}
