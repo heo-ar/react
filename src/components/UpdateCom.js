@@ -14,8 +14,8 @@ function UpdateCom({ user, loading, onChange, onSubmit }) {
         </div>
 
         <div className="form-group">
-          <label>비밀번호 수정</label>
-          <input type="password" name="pwd" value={user.pwd} onChange={onChange} />
+          <label>비밀번호(수정 불가)</label>
+          <div className="static-text">{user.pwd}</div>
         </div>
         <div className="form-group">
           <label>이름 수정</label>

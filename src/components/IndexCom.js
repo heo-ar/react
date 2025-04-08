@@ -2,7 +2,7 @@ import IndexPage from './../pages/IndexPage';
 
 function IndexCom() {
    return (<div>
-      IndexPage
+      메인페이지입니다.
    </div> );
 
 }
